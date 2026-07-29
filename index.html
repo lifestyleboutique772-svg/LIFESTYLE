@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Style - Liens Officiels</title>
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --accent-yellow: #FFD700;
+            --text-white: #ffffff;
+            --text-muted: #aaaaaa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* En-tête / Profil */
+        .profile {
+            text-align: center;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        /* Conteneur du Logo SVG officiel */
+        .logo-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-container svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .username {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--text-white);
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            color: var(--accent-yellow);
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* Icônes rapides */
+        .social-icons-quick {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .social-icons-quick a {
+            color: var(--text-white);
+            font-size: 1.3rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #2a2a2a;
+        }
+
+        .social-icons-quick a:hover {
+            color: var(--bg-color);
+            background-color: var(--accent-yellow);
+            transform: translateY(-2px);
+        }
+
+        /* Cartes de liens */
+        .links-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-card {
+            background-color: var(--card-bg);
+            border-radius: 30px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .link-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-yellow);
+        }
+
+        .link-card i {
+            font-size: 1.6rem;
+            width: 35px;
+            text-align: center;
+        }
+
+        .link-card span {
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 35px;
+        }
+
+        /* Bouton Avis Spécifique */
+        .avis-btn {
+            cursor: pointer;
+            width: 100%;
+            border: 2px solid transparent;
+            outline: none;
+        }
+
+        .avis-btn i.arrow {
+            font-size: 1.2rem;
+            margin-right: 0;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Menu des boutiques pour les avis */
+        .avis-dropdown {
+            display: none;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: 1px solid #2a2a2a;
+            margin-top: -5px;
+            margin-bottom: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .store-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .store-item:last-child {
+            border-bottom: none;
+        }
+
+        .store-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-white);
+            text-transform: uppercase;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 4px;
+        }
+
+        .star-rating i {
+            color: #444;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: color 0.2s ease, transform 0.1s ease;
+        }
+
+        .star-rating i:active {
+            transform: scale(1.2);
+        }
+
+        .star-rating i.active {
+            color: var(--accent-yellow);
+        }
+
+        /* Couleurs spécifiques aux réseaux */
+        .instagram i { color: #E1306C; }
+        .facebook i { color: #1877F2; }
+        .location-icon { color: var(--accent-yellow); }
+        .star-icon { color: var(--accent-yellow); }
+
+        /* Section Localisations avec Liens Directs */
+        .map-card {
+            background-color: var(--card-bg);
+            border-radius: 25px;
+            padding: 20px 15px;
+            border: 1px solid #2a2a2a;
+            margin-top: 5px;
+        }
+
+        .map-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-left: 5px;
+            color: var(--text-white);
+        }
+
+        .location-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #121212;
+            padding: 12px 16px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-white);
+            border: 1px solid #282828;
+            transition: all 0.2s ease;
+        }
+
+        .location-item:hover {
+            border-color: var(--accent-yellow);
+            transform: translateX(3px);
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .location-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--accent-yellow);
+        }
+
+        .location-address {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .location-item i.nav-icon {
+            color: var(--text-white);
+            font-size: 1.1rem;
+        }
+
+        /* Pied de page */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .footer span {
+            color: var(--accent-yellow);
+            font-weight: bold;
+        }
+
+        .designer {
+            margin-top: 4px;
+            font-size: 0.8rem;
+            color: #888888;
+        }
+
+        .designer strong {
+            color: var(--text-white);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- En-tête avec Logo de l'image -->
+        <div class="profile">
+            <div class="logo-container">
+                <!-- Reproduction Vectorielle SVG du Logo Officiel LIFE STYLE -->
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Fond cercle jaune avec bordure noire -->
+                    <circle cx="250" cy="250" r="240" fill="#FFD700" stroke="#000000" stroke-width="12"/>
+                    <circle cx="250" cy="250" r="225" fill="none" stroke="#000000" stroke-width="6"/>
+                    
+                    <!-- Lignes doubles LS (Agrandi et posé exactement sur la ligne) -->
+                    <g transform="translate(250, 237) scale(1.05)">
+                        <!-- L -->
+                        <path d="M -115 -85 L -115 55 L -38 55" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square" stroke-linejoin="miter"/>
+                        <path d="M -88 -85 L -88 28 L -38 28" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square" stroke-linejoin="miter"/>
+                        
+                        <!-- S -->
+                        <path d="M 135 -85 L 45 -85 C 10 -85 10 -15 45 -15 L 95 -15 C 130 -15 130 55 95 55 L 5 55" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square"/>
+                        <path d="M 135 -58 L 52 -58 C 32 -58 32 -42 52 -42 L 88 -42 C 108 -42 108 28 88 28 L 5 28" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square"/>
+                    </g>
+
+                    <!-- Ligne horizontale séparatrice -->
+                    <line x1="40" y1="310" x2="460" y2="310" stroke="#000000" stroke-width="10"/>
+
+                    <!-- Texte LIFE STYLE -->
+                    <text x="250" y="380" font-family="'Arial Black', sans-serif" font-weight="900" font-size="52" fill="#000000" text-anchor="middle" letter-spacing="4">LIFE STYLE</text>
+                    
+                    <!-- Lignes de soulignement & CASUAL & SPORT -->
+                    <line x1="90" y1="415" x2="140" y2="415" stroke="#000000" stroke-width="6"/>
+                    <text x="250" y="422" font-family="'Arial', sans-serif" font-weight="800" font-size="24" fill="#000000" text-anchor="middle" letter-spacing="2">CASUAL & SPORT</text>
+                    <line x1="360" y1="415" x2="410" y2="415" stroke="#000000" stroke-width="6"/>
+                </svg>
+            </div>
+            <h1 class="username">LIFE STYLE</h1>
+            <p class="tagline">CASUAL & SPORT</p>
+        </div>
+
+        <!-- Icônes rapides -->
+        <div class="social-icons-quick">
+            <a href="https://www.instagram.com/lifestylealgerie?igsh=NTVkMWZsbnM2eGc1" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1EBJRQQ6DT/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#map-section"><i class="fa-solid fa-location-dot"></i></a>
+        </div>
+
+        <!-- Liens Principaux -->
+        <div class="links-container">
+
+            <!-- BOUTON DONNEZ VOTRE AVIS -->
+            <button class="link-card avis-btn" onclick="toggleAvis()">
+                <i class="fa-solid fa-star star-icon"></i>
+                <span>Donnez votre avis</span>
+                <i class="fa-solid fa-chevron-down arrow" id="avis-arrow"></i>
+            </button>
+
+            <!-- MENU CACHÉ DES 6 BOUTIQUES -->
+            <div class="avis-dropdown" id="avis-dropdown">
+                
+                <div class="store-item">
+                    <span class="store-name">LS Akbou</span>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 1)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 2)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 3)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 4)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 5)"></i>
+                    </div>
+                </div>
+
+                <div class="store-item">
+                    <span class="store-name">LS Sport</span>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 1)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 2)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 3)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 4)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 5)"></i>
+                    </div>
+                </div>
+
+                <div class="store-item">
+                    <span class="store-name">TOP MEN</span>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 1)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 2)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 3)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 4)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 5)"></i>
+                    </div>
+                </div>
+
+                <div class="store-item">
+                    <span class="store-name">LS Amriw</span>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 1)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 2)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 3)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 4)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 5)"></i>
+                    </div>
+                </div>
+
+                <div class="store-item">
+                    <span class="store-name">Peak</span>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 1)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 2)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 3)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 4)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 5)"></i>
+                    </div>
+                </div>
+
+                <div class="store-item">
+                    <span class="store-name">LS EDIMCO</span>
+                    <div class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 1)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 2)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 3)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 4)"></i>
+                        <i class="fa-solid fa-star" onclick="rateStore(this, 5)"></i>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/lifestylealgerie?igsh=NTVkMWZsbnM2eGc1" target="_blank" rel="noopener" class="link-card instagram">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/1EBJRQQ6DT/" target="_blank" rel="noopener" class="link-card facebook">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+
+            <!-- SECTION LOCALISATIONS AVEC LIENS DIRECTS -->
+            <div class="map-card" id="map-section">
+                <div class="map-title">
+                    <i class="fa-solid fa-map-location-dot location-icon"></i>
+                    <span>Nos Boutiques (Google Maps)</span>
+                </div>
+                
+                <div class="location-links">
+                    
+                    <!-- 1. LS Akbou -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Urban+Jungle+Akbou+06001" target="_blank" class="location-item">
+                        <div class="location-info">
+                            <span class="location-name">LS Akbou</span>
+                            <span class="location-address">Urban Jungle, 06001 Akbou</span>
+                        </div>
+                        <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
+                    </a>
+
+                    <!-- 2. LS Sport -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Life+style+Bd+A%C3%AFssat+Idir+Akbou" target="_blank" class="location-item">
+                        <div class="location-info">
+                            <span class="location-name">LS Sport</span>
+                            <span class="location-address">Bd Aïssat Idir, Akbou</span>
+                        </div>
+                        <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
+                    </a>
+
+                    <!-- 3. LS Amriw -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Urban+Jungle+B%C3%A9ja%C3%AFa" target="_blank" class="location-item">
+                        <div class="location-info">
+                            <span class="location-name">LS Amriw</span>
+                            <span class="location-address">Urban Jungle, Béjaïa</span>
+                        </div>
+                        <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
+                    </a>
+
+                    <!-- 4. TOP MEN -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=TOP+MEN" target="_blank" class="location-item">
+                        <div class="location-info">
+                            <span class="location-name">TOP MEN</span>
+                            <span class="location-address">Cliquez pour l'itinéraire</span>
+                        </div>
+                        <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
+                    </a>
+
+                    <!-- 5. Peak -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Peak" target="_blank" class="location-item">
+                        <div class="location-info">
+                            <span class="location-name">Peak</span>
+                            <span class="location-address">Cliquez pour l'itinéraire</span>
+                        </div>
+                        <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
+                    </a>
+
+                    <!-- 6. LS EDIMCO -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=LS+Quartier+Sghir" target="_blank" class="location-item">
+                        <div class="location-info">
+                            <span class="location-name">LS EDIMCO</span>
+                            <span class="location-address">Cliquez pour l'itinéraire</span>
+                        </div>
+                        <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2026 <span>LIFE STYLE</span>. Tous droits réservés.</p>
+            <p class="designer">Designed by <strong>Nazim Bouda</strong></p>
+        </div>
+
+    </div>
+
+    <!-- Script Javascript -->
+    <script>
+        function toggleAvis() {
+            var dropdown = document.getElementById("avis-dropdown");
+            var arrow = document.getElementById("avis-arrow");
+            
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+                arrow.style.transform = "rotate(0deg)";
+            } else {
+                dropdown.style.display = "block";
+                arrow.style.transform = "rotate(180deg)";
+            }
+        }
+
+        function rateStore(starElement, rating) {
+            var starContainer = starElement.parentElement;
+            var stars = starContainer.querySelectorAll("i");
+            
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add("active");
+                } else {
+                    star.classList.remove("active");
+                }
+            });
+        }
+    </script>
+</body>
+</html>
