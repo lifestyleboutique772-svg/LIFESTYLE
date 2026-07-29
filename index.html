@@ -224,7 +224,6 @@
             color: var(--accent-yellow);
         }
 
-        /* Information & moyenne des avis */
         .store-info {
             display: flex;
             flex-direction: column;
@@ -265,13 +264,13 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* Couleurs spécifiques aux réseaux */
+        /* Couleurs réseaux */
         .instagram i { color: #E1306C; }
         .facebook i { color: #1877F2; }
         .location-icon { color: var(--accent-yellow); }
         .star-icon { color: var(--accent-yellow); }
 
-        /* Section Localisations avec Liens Directs */
+        /* Section Localisations */
         .map-card {
             background-color: var(--card-bg);
             border-radius: 25px;
@@ -364,38 +363,30 @@
 </head>
 <body>
 
-    <!-- Bulle de notification pour le retour sur les étoiles -->
+    <!-- Notification Toast -->
     <div id="toast" class="toast-feedback"></div>
 
     <div class="container">
         
-        <!-- En-tête avec Logo de l'image -->
+        <!-- En-tête / Profil avec Logo SVG -->
         <div class="profile">
             <div class="logo-container">
-                <!-- Reproduction Vectorielle SVG du Logo Officiel LIFE STYLE -->
                 <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Fond cercle jaune avec bordure noire -->
                     <circle cx="250" cy="250" r="240" fill="#FFD700" stroke="#000000" stroke-width="12"/>
                     <circle cx="250" cy="250" r="225" fill="none" stroke="#000000" stroke-width="6"/>
                     
-                    <!-- Lignes doubles LS (Agrandi et posé exactement sur la ligne) -->
                     <g transform="translate(250, 237) scale(1.05)">
                         <!-- L -->
                         <path d="M -115 -85 L -115 55 L -38 55" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square" stroke-linejoin="miter"/>
                         <path d="M -88 -85 L -88 28 L -38 28" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square" stroke-linejoin="miter"/>
-                        
                         <!-- S -->
                         <path d="M 135 -85 L 45 -85 C 10 -85 10 -15 45 -15 L 95 -15 C 130 -15 130 55 95 55 L 5 55" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square"/>
                         <path d="M 135 -58 L 52 -58 C 32 -58 32 -42 52 -42 L 88 -42 C 108 -42 108 28 88 28 L 5 28" fill="none" stroke="#000000" stroke-width="20" stroke-linecap="square"/>
                     </g>
 
-                    <!-- Ligne horizontale séparatrice -->
                     <line x1="40" y1="310" x2="460" y2="310" stroke="#000000" stroke-width="10"/>
-
-                    <!-- Texte LIFE STYLE -->
                     <text x="250" y="380" font-family="'Arial Black', sans-serif" font-weight="900" font-size="52" fill="#000000" text-anchor="middle" letter-spacing="4">LIFE STYLE</text>
                     
-                    <!-- Lignes de soulignement & CASUAL & SPORT -->
                     <line x1="90" y1="415" x2="140" y2="415" stroke="#000000" stroke-width="6"/>
                     <text x="250" y="422" font-family="'Arial', sans-serif" font-weight="800" font-size="24" fill="#000000" text-anchor="middle" letter-spacing="2">CASUAL & SPORT</text>
                     <line x1="360" y1="415" x2="410" y2="415" stroke="#000000" stroke-width="6"/>
@@ -523,7 +514,7 @@
                 <span>Facebook</span>
             </a>
 
-            <!-- SECTION LOCALISATIONS AVEC LIENS DIRECTS -->
+            <!-- LOCALISATIONS GOOGLE MAPS -->
             <div class="map-card" id="map-section">
                 <div class="map-title">
                     <i class="fa-solid fa-map-location-dot location-icon"></i>
@@ -532,7 +523,6 @@
                 
                 <div class="location-links">
                     
-                    <!-- 1. LS Akbou -->
                     <a href="https://www.google.com/maps/search/?api=1&query=Urban+Jungle+Akbou+06001" target="_blank" class="location-item">
                         <div class="location-info">
                             <span class="location-name">LS Akbou</span>
@@ -541,7 +531,6 @@
                         <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
                     </a>
 
-                    <!-- 2. LS Sport -->
                     <a href="https://www.google.com/maps/search/?api=1&query=Life+style+Bd+A%C3%AFssat+Idir+Akbou" target="_blank" class="location-item">
                         <div class="location-info">
                             <span class="location-name">LS Sport</span>
@@ -550,7 +539,6 @@
                         <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
                     </a>
 
-                    <!-- 3. LS Amriw -->
                     <a href="https://www.google.com/maps/search/?api=1&query=Urban+Jungle+B%C3%A9ja%C3%AFa" target="_blank" class="location-item">
                         <div class="location-info">
                             <span class="location-name">LS Amriw</span>
@@ -559,7 +547,6 @@
                         <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
                     </a>
 
-                    <!-- 4. TOP MEN -->
                     <a href="https://www.google.com/maps/search/?api=1&query=TOP+MEN" target="_blank" class="location-item">
                         <div class="location-info">
                             <span class="location-name">TOP MEN</span>
@@ -568,7 +555,6 @@
                         <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
                     </a>
 
-                    <!-- 5. Peak -->
                     <a href="https://www.google.com/maps/search/?api=1&query=Peak" target="_blank" class="location-item">
                         <div class="location-info">
                             <span class="location-name">Peak</span>
@@ -577,7 +563,6 @@
                         <i class="fa-solid fa-diamond-turn-right nav-icon"></i>
                     </a>
 
-                    <!-- 6. LS EDIMCO -->
                     <a href="https://www.google.com/maps/search/?api=1&query=LS+Quartier+Sghir" target="_blank" class="location-item">
                         <div class="location-info">
                             <span class="location-name">LS EDIMCO</span>
@@ -599,31 +584,29 @@
 
     </div>
 
-    <!-- Script Firebase & Interactions -->
+    <!-- Script Firebase (Realtime Database v11) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
 
-        // Configuration Firebase
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'lifestyle-app';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' && __firebase_config ? JSON.parse(__firebase_config) : {
-            apiKey: "AIzaSyDemoKeyOnlyForFallback12345678",
-            authDomain: "demo-app.firebaseapp.com",
-            projectId: "demo-app",
-            storageBucket: "demo-app.appspot.com",
-            messagingSenderId: "123456789",
-            appId: "1:123456789:web:demo"
+        // Configuration Firebase Officielle Life Style
+        const firebaseConfig = {
+            apiKey: "AIzaSyAtpnZ4ejt-tonpP1D8O2RozTs-5S1Q-Pk",
+            authDomain: "lifestyle-35e2f.firebaseapp.com",
+            databaseURL: "https://lifestyle-35e2f-default-rtdb.firebaseio.com",
+            projectId: "lifestyle-35e2f",
+            storageBucket: "lifestyle-35e2f.firebasestorage.app",
+            messagingSenderId: "574258475209",
+            appId: "1:574258475209:web:a6dd08ce0cd889ebb3dd18",
+            measurementId: "G-Z4PTZ5BCDZ"
         };
 
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+        const db = getDatabase(app);
+        const reviewsRef = ref(db, 'reviews');
 
-        let currentUser = null;
         let toastTimeout = null;
 
-        // Messages selon le nombre d'étoiles
         const ratingMessages = {
             1: "Null",
             2: "Il faut améliorer les vendeurs",
@@ -632,60 +615,37 @@
             5: "Donnez une prime à vos vendeurs"
         };
 
-        async function initAuth() {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    const userCred = await signInWithCustomToken(auth, __initial_auth_token);
-                    currentUser = userCred.user;
-                } else {
-                    const userCred = await signInAnonymously(auth);
-                    currentUser = userCred.user;
-                }
-                listenToReviews();
-            } catch (err) {
-                console.error("Erreur d'authentification Firebase:", err);
+        // Écoute en temps réel des avis enregistrés
+        onValue(reviewsRef, (snapshot) => {
+            const data = snapshot.val();
+            const storeStats = {};
+
+            if (data) {
+                Object.values(data).forEach(review => {
+                    if (review.storeName && review.rating) {
+                        if (!storeStats[review.storeName]) {
+                            storeStats[review.storeName] = { sum: 0, count: 0 };
+                        }
+                        storeStats[review.storeName].sum += Number(review.rating);
+                        storeStats[review.storeName].count += 1;
+                    }
+                });
             }
-        }
 
-        initAuth();
-
-        // Path obligatoire : /artifacts/{appId}/public/data/store_reviews
-        const reviewsCollection = collection(db, 'artifacts', appId, 'public', 'data', 'store_reviews');
-
-        function listenToReviews() {
-            onSnapshot(reviewsCollection, (snapshot) => {
-                const storeStats = {};
-
-                snapshot.forEach(doc => {
-                    const data = doc.data();
-                    if (data.storeName && data.rating) {
-                        if (!storeStats[data.storeName]) {
-                            storeStats[data.storeName] = { sum: 0, count: 0 };
-                        }
-                        storeStats[data.storeName].sum += Number(data.rating);
-                        storeStats[data.storeName].count += 1;
+            const stores = ["LS Akbou", "LS Sport", "TOP MEN", "LS Amriw", "Peak", "LS Quartier Sghir"];
+            stores.forEach(name => {
+                const el = document.getElementById(`avg-${name}`);
+                if (el) {
+                    if (storeStats[name] && storeStats[name].count > 0) {
+                        const avg = (storeStats[name].sum / storeStats[name].count).toFixed(1);
+                        el.innerHTML = `★ ${avg} (${storeStats[name].count} avis)`;
+                    } else {
+                        el.innerHTML = `★ 0.0 (0 avis)`;
                     }
-                });
-
-                // Mettre à jour l'affichage de chaque boutique
-                const stores = ["LS Akbou", "LS Sport", "TOP MEN", "LS Amriw", "Peak", "LS EDIMCO"];
-                stores.forEach(name => {
-                    const el = document.getElementById(`avg-${name}`);
-                    if (el) {
-                        if (storeStats[name] && storeStats[name].count > 0) {
-                            const avg = (storeStats[name].sum / storeStats[name].count).toFixed(1);
-                            el.innerHTML = `★ ${avg} (${storeStats[name].count} avis)`;
-                        } else {
-                            el.innerHTML = `★ 0.0 (0 avis)`;
-                        }
-                    }
-                });
-            }, (error) => {
-                console.error("Erreur lors de la lecture des avis:", error);
+                }
             });
-        }
+        });
 
-        // Affichage temporaire du message toast
         function showToast(message) {
             const toast = document.getElementById("toast");
             toast.innerText = message;
@@ -698,11 +658,11 @@
             }, 2500);
         }
 
+        // Soumission de l'avis
         window.rateStore = async function(starElement, rating) {
             const storeItem = starElement.closest('.store-item');
             const storeName = storeItem ? storeItem.getAttribute('data-store') : 'Boutique';
 
-            // 1. Mettre à jour les étoiles visuellement
             const starContainer = starElement.parentElement;
             const stars = starContainer.querySelectorAll("i");
             stars.forEach((star, index) => {
@@ -713,27 +673,32 @@
                 }
             });
 
-            // 2. Afficher la notification avec le texte demandé
             const message = ratingMessages[rating] || "";
             showToast(message);
 
-            // 3. Sauvegarder dans Firebase
-            if (currentUser) {
-                try {
-                    await addDoc(reviewsCollection, {
-                        storeName: storeName,
-                        rating: rating,
-                        message: message,
-                        userId: currentUser.uid,
-                        createdAt: new Date().toISOString()
-                    });
-                } catch (e) {
-                    console.error("Erreur lors de l'enregistrement de l'avis:", e);
-                }
+            try {
+                await push(reviewsRef, {
+                    storeName: storeName,
+                    rating: rating,
+                    message: message,
+                    createdAt: new Date().toISOString()
+                });
+            } catch (e) {
+                console.error("Erreur enregistrement avis:", e);
             }
+
+            // Fermer le menu après 1 seconde
+            setTimeout(() => {
+                var dropdown = document.getElementById("avis-dropdown");
+                var arrow = document.getElementById("avis-arrow");
+                if (dropdown) {
+                    dropdown.style.display = "none";
+                    if (arrow) arrow.style.transform = "rotate(0deg)";
+                }
+            }, 1200);
         };
 
-        // Gestion du menu déroulant Avis
+        // Toggle du menu avis
         window.toggleAvis = function() {
             var dropdown = document.getElementById("avis-dropdown");
             var arrow = document.getElementById("avis-arrow");
